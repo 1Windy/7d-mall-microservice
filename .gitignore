@@ -36,3 +36,4 @@ target/
 .classpath
 .project
 /document/7d-mall-docker-compose/data/
+/document/docker-compose/data/
