@@ -1,0 +1,54 @@
+2024-04-23 19:25:20,205 INFO DEFAULT_GROUP@@mall-admin {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [10.102.231.48:8087:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-23 19:25:20,260 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@mall-admin, ips: 10.102.231.48:8087_true,
+
+2024-04-23 19:38:03,542 INFO DEFAULT_GROUP@@mall-auth {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [10.102.231.48:8401:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-23 19:38:03,543 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@mall-auth, ips: 10.102.231.48:8401_true,
+
+2024-04-23 19:43:09,069 INFO DEFAULT_GROUP@@mall-cart {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [10.102.231.48:8086:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-23 19:43:09,069 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@mall-cart, ips: 10.102.231.48:8086_true,
+
+2024-04-23 19:43:19,713 INFO DEFAULT_GROUP@@mall-cart {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [10.102.231.48:8086:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-23 19:43:19,714 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@mall-cart, ips: 
+
+2024-04-23 19:44:47,955 INFO DEFAULT_GROUP@@mall-cart {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [10.102.231.48:8086:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-23 19:44:47,955 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@mall-cart, ips: 10.102.231.48:8086_true,
+
+2024-04-23 19:45:50,178 INFO DEFAULT_GROUP@@mall-demo {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [10.102.231.48:8082:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-23 19:45:50,178 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@mall-demo, ips: 10.102.231.48:8082_true,
+
+2024-04-23 19:49:11,192 INFO DEFAULT_GROUP@@mall-member {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [10.102.231.48:8083:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-23 19:49:11,193 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@mall-member, ips: 10.102.231.48:8083_true,
+
+2024-04-23 19:49:52,063 INFO DEFAULT_GROUP@@mall-monitor {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [10.102.231.48:8101:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-23 19:49:52,064 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@mall-monitor, ips: 10.102.231.48:8101_true,
+
+2024-04-23 19:51:02,133 INFO DEFAULT_GROUP@@mall-order {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [10.102.231.48:8084:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-23 19:51:02,133 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@mall-order, ips: 10.102.231.48:8084_true,
+
+2024-04-23 19:52:17,234 INFO DEFAULT_GROUP@@mall-portal {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [10.102.231.48:8085:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-23 19:52:17,235 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@mall-portal, ips: 10.102.231.48:8085_true,
+
+2024-04-23 19:53:31,452 INFO DEFAULT_GROUP@@mall-search {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [10.102.231.48:8081:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-23 19:53:31,453 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@mall-search, ips: 10.102.231.48:8081_true,
+
+2024-04-23 19:54:11,283 INFO DEFAULT_GROUP@@mall-gateway {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [10.102.231.48:8201:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-04-23 19:54:11,283 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@mall-gateway, ips: 10.102.231.48:8201_true,
+
+2024-04-23 21:48:25,897 INFO {POS} {IP-DISABLED} valid: 10.102.231.48:8401@DEFAULT@DEFAULT_GROUP@@mall-auth, region: unknown, msg: client timeout after 15000, last beat: 1713880089589
+
+2024-04-23 21:48:40,789 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@mall-auth, ips: 10.102.231.48:8401_false,
+
+2024-04-23 21:48:45,744 INFO service: DEFAULT_GROUP@@mall-auth {POS} {IP-ENABLED} valid: 10.102.231.48:8401@DEFAULT, region: unknown, msg: client beat ok
+

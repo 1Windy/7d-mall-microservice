@@ -1,0 +1,2 @@
+rabbitmq-plugins enable rabbitmq_management
+exit

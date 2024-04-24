@@ -1,0 +1,107 @@
+version: "3"
+
+services:
+#  mysql:
+#    image: mysql:8.0.21
+#    container_name: mysql
+#    ports:
+#      - 3306:3306
+#    volumes:
+#      - ./data/mysql:/var/lib/mysql
+#    environment:
+#      MYSQL_ROOT_PASSWORD: root
+
+  mongo:
+    image: mongo:4.2.5
+    container_name: mongo4.2.5
+    ports:
+      - 27018:27017
+    volumes:
+      - ./data/mongodb/db:/data/db
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: root
+
+  redis:
+    container_name: redis5.0
+    image: redis:5.0
+    restart: always
+    ports:
+      - 16379:6379
+    privileged: true
+#    command: redis-server /etc/redis/redis.conf --appendonly yes --requirepass "redis"
+    command: redis-server /etc/redis/redis.conf --appendonly yes
+    volumes:
+      - ./data/redis/data:/data
+      - ./data/redis/conf/redis.conf:/etc/redis/redis.conf
+
+  nacos:
+    image: nacos/nacos-server:1.4.0
+    container_name: nacos1.4.0
+    volumes:
+      - ./data/nacos/logs:/home/nacos/logs
+    ports:
+      - 8848:8848
+    environment:
+      - MODE=standalone
+
+  rabbitmq:
+    image: rabbitmq:3.7.14-management
+    container_name: rabbitmq3.7.14
+    # 节点名 rabbit@rabbitserver，不然会取容器ID
+    hostname: rabbitserver
+    environment:
+      # 默认虚拟机名
+      RABBITMQ_DEFAULT_VHOST: /mall
+      RABBITMQ_DEFAULT_USER: mall
+      RABBITMQ_DEFAULT_PASS: mall
+      # 指定自定义插件目录
+      RABBITMQ_PLUGINS_DIR: '/plugins:/myplugins'
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ./data/rabbitmq/:/var/lib/rabbitmq
+      - ./data/rabbitmq/myplugins:/myplugins
+
+#  zipkin:
+#    image: openzipkin/zipkin:8.1.0
+#    container_name: zipkin8.1.0
+#    # Environment settings are defined here https://github.com/openzipkin/zipkin/blob/master/zipkin-server/README.md#environment-variables
+#    environment:
+#      - STORAGE_TYPE=mem
+#      # Uncomment to enable self-tracing
+#      # - SELF_TRACING_ENABLED=true
+#      # Uncomment to increase heap size
+#      # - JAVA_OPTS=-Xms128m -Xmx128m -XX:+ExitOnOutOfMemoryError
+#    ports:
+#      # Port used for the Zipkin UI and HTTP Api
+#      - 19411:9411
+
+  elasticsearch:
+    image: elasticsearch:7.6.2
+    container_name: elasticsearch7.6.2
+    ports:
+      - "19200:9200"
+      - "19300:9300"
+    environment:
+      - discovery.type=single-node
+      - ELASTIC_PASSWORD=admin@123
+    volumes:
+      - ./data/elasticsearch/data:/usr/share/elasticsearch/data
+      - ./data/elasticsearch/plugins:/usr/share/elasticsearch/plugins
+
+#  kibana:
+#    image: kibana:7.6.2
+#    container_name: es-kibana7.6.2
+#    ports:
+#      - "15601:5601"
+#    environment:
+#      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+#      ELASTICSEARCH_USERNAME: elastic
+#      ELASTICSEARCH_PASSWORD: admin@123
+#      I18N_LOCALE: zh-CN
+#    volumes:
+#      - ./data/elasticsearch/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+#    depends_on:
+#      - elasticsearch

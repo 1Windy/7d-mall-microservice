@@ -1,0 +1,20 @@
+2024-04-23 19:25:19,506 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@mall-admin
+
+2024-04-23 19:38:03,531 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@mall-auth
+
+2024-04-23 19:43:09,064 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@mall-cart
+
+2024-04-23 19:45:50,171 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@mall-demo
+
+2024-04-23 19:49:11,183 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@mall-member
+
+2024-04-23 19:49:52,056 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@mall-monitor
+
+2024-04-23 19:51:02,126 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@mall-order
+
+2024-04-23 19:52:17,213 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@mall-portal
+
+2024-04-23 19:53:31,450 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@mall-search
+
+2024-04-23 19:54:11,281 INFO add listener: com.alibaba.nacos.naming.iplist.public##DEFAULT_GROUP@@mall-gateway
+
