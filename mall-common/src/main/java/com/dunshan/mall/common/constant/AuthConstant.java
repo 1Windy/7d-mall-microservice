@@ -58,5 +58,8 @@ public interface AuthConstant {
 
     String SECRET_ENCODE_CODE = "123456";
 
-
+    /**
+     * 压测流量标识
+     */
+    String TRAFFIC_SIGNS = "dunshan";
 }

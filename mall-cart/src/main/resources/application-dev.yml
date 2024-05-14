@@ -3,6 +3,22 @@ server:
   tomcat:
     accept-count: 1000
 spring:
+  sleuth:
+    sampler: #采样器
+      probability: 1.0 #采样率，采样率是采集 Trace 的比率，默认 0.1，百分之百采集
+      rate: 10000 #每秒数据采集量，最多 n 条/秒 Trace
+    propagation:
+      tag:
+        whitelisted-keys:
+          - dunshan
+        enabled: true
+    propagation-keys:
+      - dunshan
+    web: # Web 组件的配置项，例如说 SpringMVC
+      enabled: true
+  zipkin: #设置 zipkin 服务端地址
+    base-url: http://127.0.0.1:19411
+
   datasource:
     druid:
       url: jdbc:mysql://10.102.231.48:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai

@@ -1,10 +1,13 @@
 package com.dunshan.mall.filter;
 
+import brave.Tracer;
 import cn.hutool.core.util.StrUtil;
 import com.dunshan.mall.common.constant.AuthConstant;
 import com.nimbusds.jose.JWSObject;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -23,20 +26,37 @@ import java.text.ParseException;
 public class AuthGlobalFilter implements GlobalFilter, Ordered {
 
     private static Logger LOGGER = LoggerFactory.getLogger(AuthGlobalFilter.class);
+    private Tracer tracer;
+
+    @Autowired
+    public void setTracer(Tracer tracer) {
+        this.tracer = tracer;
+    }
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String token = exchange.getRequest().getHeaders().getFirst(AuthConstant.JWT_TOKEN_HEADER);
+        String dunshan = exchange.getRequest().getHeaders().getFirst(AuthConstant.TRAFFIC_SIGNS);
+
         if (StrUtil.isEmpty(token)) {
             return chain.filter(exchange);
         }
         try {
+            // 透传标签
+            if (StringUtils.isNotEmpty(dunshan)) {
+                LOGGER.info("压测流量标识: " + dunshan);
+                tracer.currentSpan().tag(AuthConstant.TRAFFIC_SIGNS, dunshan);
+            }
+
             //从token中解析用户信息并设置到Header中去
             String realToken = token.replace(AuthConstant.JWT_TOKEN_PREFIX, "");
             JWSObject jwsObject = JWSObject.parse(realToken);
             String userStr = jwsObject.getPayload().toString();
             LOGGER.info("AuthGlobalFilter.filter() user:{}",userStr);
-            ServerHttpRequest request = exchange.getRequest().mutate().header(AuthConstant.USER_TOKEN_HEADER, userStr).build();
+            ServerHttpRequest request = exchange.getRequest().mutate()
+                    .header(AuthConstant.USER_TOKEN_HEADER, userStr)
+                    .header(AuthConstant.TRAFFIC_SIGNS, dunshan)
+                    .build();
             exchange = exchange.mutate().request(request).build();
         } catch (ParseException e) {
             e.printStackTrace();

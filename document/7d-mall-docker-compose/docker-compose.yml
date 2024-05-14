@@ -64,19 +64,19 @@ services:
       - ./data/rabbitmq/:/var/lib/rabbitmq
       - ./data/rabbitmq/myplugins:/myplugins
 
-#  zipkin:
-#    image: openzipkin/zipkin:8.1.0
-#    container_name: zipkin8.1.0
-#    # Environment settings are defined here https://github.com/openzipkin/zipkin/blob/master/zipkin-server/README.md#environment-variables
-#    environment:
-#      - STORAGE_TYPE=mem
-#      # Uncomment to enable self-tracing
-#      # - SELF_TRACING_ENABLED=true
-#      # Uncomment to increase heap size
-#      # - JAVA_OPTS=-Xms128m -Xmx128m -XX:+ExitOnOutOfMemoryError
-#    ports:
-#      # Port used for the Zipkin UI and HTTP Api
-#      - 19411:9411
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    # Environment settings are defined here https://github.com/openzipkin/zipkin/blob/master/zipkin-server/README.md#environment-variables
+    environment:
+      - STORAGE_TYPE=mem
+      # Uncomment to enable self-tracing
+      # - SELF_TRACING_ENABLED=true
+      # Uncomment to increase heap size
+      - JAVA_OPTS=-Xms128m -Xmx128m -XX:+ExitOnOutOfMemoryError
+    ports:
+      # Port used for the Zipkin UI and HTTP Api
+      - 19411:9411
 
   elasticsearch:
     image: elasticsearch:7.6.2
