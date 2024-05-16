@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * @author zhenghf
  * @date 2024-05-14
- * @desc
+ * @desc 数据上下文
  */
 
 public class AppContext implements Serializable {
