@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author zhenghf
  * @date 2024-05-16
- * @desc
+ * @desc AOP拦截所有入口调用, 判断压测透传标记, 区分压测流量
  */
 
 @Slf4j
