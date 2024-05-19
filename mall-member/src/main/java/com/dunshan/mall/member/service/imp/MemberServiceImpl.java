@@ -124,7 +124,7 @@ public class MemberServiceImpl implements MemberService {
         //查询是否已有该用户
         UmsMemberExample example = new UmsMemberExample();
         example.createCriteria().andUsernameEqualTo(username);
-        example.or(example.createCriteria().andPhoneEqualTo(telephone));
+//        example.or(example.createCriteria().andPhoneEqualTo(telephone));
         List<UmsMember> umsMembers = memberMapper.selectByExample(example);
         if (!CollectionUtils.isEmpty(umsMembers)) {
             Asserts.fail("该用户已经存在");
