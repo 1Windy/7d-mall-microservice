@@ -13,4 +13,4 @@ spring:
       eager: true
 reactor:
   netty:
-    ioWorkerCount: 6
+    ioWorkerCount: 8

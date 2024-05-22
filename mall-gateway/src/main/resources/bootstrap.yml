@@ -6,4 +6,4 @@ spring:
 
 reactor:
   netty:
-    ioWorkerCount: 60
+    ioWorkerCount: 8
