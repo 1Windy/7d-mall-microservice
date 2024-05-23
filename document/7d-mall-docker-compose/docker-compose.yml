@@ -4,6 +4,7 @@ services:
 #  mysql:
 #    image: mysql:8.0.21
 #    container_name: mysql
+#     restart: always
 #    ports:
 #      - 3306:3306
 #    volumes:
@@ -14,6 +15,7 @@ services:
   mongo:
     image: mongo:4.2.5
     container_name: mongo4.2.5
+    restart: always
     ports:
       - 27018:27017
     volumes:
@@ -38,6 +40,7 @@ services:
   nacos:
     image: nacos/nacos-server:1.4.0
     container_name: nacos1.4.0
+    restart: always
     volumes:
       - ./data/nacos/logs:/home/nacos/logs
     ports:
@@ -48,6 +51,7 @@ services:
   rabbitmq:
     image: rabbitmq:3.7.14-management
     container_name: rabbitmq3.7.14
+    restart: always
     # 节点名 rabbit@rabbitserver，不然会取容器ID
     hostname: rabbitserver
     environment:
@@ -67,6 +71,7 @@ services:
   zipkin:
     image: openzipkin/zipkin
     container_name: zipkin
+    restart: always
     # Environment settings are defined here https://github.com/openzipkin/zipkin/blob/master/zipkin-server/README.md#environment-variables
     environment:
       - STORAGE_TYPE=mem
@@ -81,6 +86,7 @@ services:
   elasticsearch:
     image: elasticsearch:7.6.2
     container_name: elasticsearch7.6.2
+    restart: always
     ports:
       - "19200:9200"
       - "19300:9300"
@@ -94,6 +100,7 @@ services:
 #  kibana:
 #    image: kibana:7.6.2
 #    container_name: es-kibana7.6.2
+#     restart: always
 #    ports:
 #      - "15601:5601"
 #    environment:
